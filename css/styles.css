@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+
+.estilos-contenedores{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.estilos-contenedores h2{
+    grid-column: span 3;
+}
+
+.estilos-cards{
+    width: 18rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img{
+    padding: 5px 5px;
+}
+
+header{
+    margin: 10px 0px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+header nav{
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    gap: 30px;
+}
