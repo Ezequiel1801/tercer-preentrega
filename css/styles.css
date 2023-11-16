@@ -24,6 +24,21 @@ body{
     margin-bottom: 10px;
 }
 
+.precioCard{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.parrafoCard{
+    text-align: start;
+    font-size: 18px;
+}
+
+.tituloCard{
+    font-size: 30px;
+    font-weight: bold;
+}
+
 img{
     padding: 5px 5px;
 }
@@ -40,4 +55,23 @@ header nav{
     width: 80%;
     flex-direction: row;
     gap: 30px;
+}
+
+
+@media screen and (max-width: 600px){
+    .estilos-contenedores{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    header nav{
+        display: grid;
+        width: 80%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 30px;
+    }
+        
+    
 }
