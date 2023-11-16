@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-  <header class="estilos-headers">
+  <header>
     <nav>
       <input class="form-control filtroBusqueda" id="filtro" type="text" placeholder="Filtro de busqueda" autocomplete="off">
       <select class="form-control ordenProductos" id="selectOrder">
@@ -23,7 +23,15 @@
 
   <main>
     <div class="estilos-contenedores" id="contenedor">
+
     </div>
+    <br>
+    <hr>
+    <br>
+    <div class="estilos-contenedores" id="contenedorCarrito">
+
+    </div>
+    <h3>Precio total de los productos agregados: <span id="totalPrecioProductos">$0</span></h3>
   </main>
 
 <script src="js/main.js"></script>
