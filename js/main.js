@@ -277,7 +277,7 @@ const listaDeProductos= [
     new procesadores("AMD Ryzen 3 4100 AM4", "8 hilos", "4 nucleos", "3.20Ghz", "img/procesadores/amd-ryzen3-4100.jpg", 84000, 21, "Procesadores"),
     new procesadores("AMD Ryzen 5 7600 AM5", "12 hilos", "6 nucleos", "3.50Ghz", "img/procesadores/amd-ryzen5-7600.png", 295000, 22, "Procesadores"),
     new procesadores("AMD Ryzen 7 7700x AM5", "16 hilos", "8 nucleos", "4.50Ghz", "img/procesadores/amd-ryzen7-7700x.jpg", 440000, 23, "Procesadores"),
-    new procesadores("AMD Ryzen 9 7900x AM5", "24 hilos", "12 nucleos", "4.40Ghz", "img/procesadores/amd-ryzen9-7900x.jpg", 84000, 24, "Procesadores"),
+    new procesadores("AMD Ryzen 9 7900x AM5", "24 hilos", "12 nucleos", "4.40Ghz", "img/procesadores/amd-ryzen9-7900x.jpg", 790000, 24, "Procesadores"),
 ];
 
 renderProductos(listaDeProductos, carrito);
