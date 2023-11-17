@@ -28,6 +28,22 @@ class mothers{
         this.id=id;
     }
 }
+class procesadores{
+    constructor(modelo, cantHilos, cantNucleos, frecuencia, img, precio, id, categoria){
+        this.modelo=modelo;
+        this.cantHilos=cantHilos;
+        this.cantNucleos=cantNucleos;
+        this.frecuencia=frecuencia;
+        this.img=img;
+        this.precio=precio;
+        this.especificaciones=`
+        -Cantidad de nucleos: ${cantNucleos}
+        -Cantidad de hilos: ${cantHilos}
+        -Frecuencia base: ${frecuencia}`
+        this.id=id;
+        this.categoria=categoria;
+    }
+}
 
 let carrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
@@ -148,7 +164,6 @@ function ordenarPorNombreZA(){
         }
         return 0; 
     });
-
     renderProductos(productosOrdenados);
 }
 
@@ -166,6 +181,7 @@ function ordenarPorNombreAZ(){
 
 function ordenarPorPrecioMayor(){
     const productosOrdenados = listaDeProductos.sort( (a,b)=>{
+        
         if(a.precio < b.precio){
             return 1;
         }else if(a.precio > b.precio){
@@ -173,7 +189,6 @@ function ordenarPorPrecioMayor(){
         }
         return 0;
     });
-
     renderProductos(productosOrdenados);
 }
 
@@ -251,6 +266,18 @@ const listaDeProductos= [
     new mothers ("Mother AMD Gigabyte A520M-K V2", "AM4 Ryzen 1th Gen A AM4 Ryzen 4th Gen", "Mini ATX", "2 Slots de memorias DDR4", 80000, "img/motherboards/amd-am4-a520m-gigabyte.jpg", "Motherboard", 14),
     new mothers ("Mother AMD Asus TUF B650M-PLUS WIFI", "AM5 Ryzen 7000", "Mini ATX", "4 Slots de memorias DDR4", 230000, "img/motherboards/amd-am5-b650m-asus.jpg", "Motherboard", 15),
     new mothers ("Mother AMD MSI X670-P PRO WIFI", "AM5 Ryzen 7000", "ATX", "4 Slots de memorias DDR5", 375000, "img/motherboards/amd-am5-x670p-msi.jpg", "Motherboard", 16),
+
+    //Procesadores Intel
+    new procesadores("Intel Core I3 12100f", "8 hilos", "4 nucleos", "3.30Ghz", "img/procesadores/intel-i3-12100f.jpg", 140000, 17, "Procesadores"),
+    new procesadores("Intel Core I5 13400f", "16 hilos", "10 nucleos", "2.50Ghz", "img/procesadores/intel-i5-13400f.jpg", 285000, 18, "Procesadores"),
+    new procesadores("Intel Core I7 13700k", "24 hilos", "16 nucleos", "3.40Ghz", "img/procesadores/intel-i7-13700k.png", 600000, 19, "Procesadores"),
+    new procesadores("Intel Core I9 12900k", "24 hilos", "16 nucleos", "3.20Ghz", "img/procesadores/intel-i9-12900k.png", 700000, 20, "Procesadores"),
+
+    //Procesadores AMD
+    new procesadores("AMD Ryzen 3 4100 AM4", "8 hilos", "4 nucleos", "3.20Ghz", "img/procesadores/amd-ryzen3-4100.jpg", 84000, 21, "Procesadores"),
+    new procesadores("AMD Ryzen 5 7600 AM5", "12 hilos", "6 nucleos", "3.50Ghz", "img/procesadores/amd-ryzen5-7600.png", 295000, 22, "Procesadores"),
+    new procesadores("AMD Ryzen 7 7700x AM5", "16 hilos", "8 nucleos", "4.50Ghz", "img/procesadores/amd-ryzen7-7700x.jpg", 440000, 23, "Procesadores"),
+    new procesadores("AMD Ryzen 9 7900x AM5", "24 hilos", "12 nucleos", "4.40Ghz", "img/procesadores/amd-ryzen9-7900x.jpg", 84000, 24, "Procesadores"),
 ];
 
 renderProductos(listaDeProductos, carrito);
@@ -258,4 +285,3 @@ renderProductos(listaDeProductos, carrito);
 ordenarProductos();
 
 filtroDeProductos();
-
