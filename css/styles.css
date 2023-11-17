@@ -13,15 +13,29 @@ body{
     justify-items: center;
 }
 
-.estilos-contenedores h2{
-    grid-column: span 3;
-}
-
 .estilos-cards{
     width: 18rem;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.card-body button{
+    border: 3px solid rgb(4, 131, 235);
+    border-radius: 8px;
+}
+
+.card-body button:hover{
+    background-color: rgb(6, 112, 250);
+}
+
+#contenedorCarrito .card-body button{
+    border: 3px solid rgb(223, 6, 6);
+    border-radius: 8px;
+}
+
+#contenedorCarrito .card-body button:hover{
+    background-color: rgb(201, 7, 7);
 }
 
 .precioCard{

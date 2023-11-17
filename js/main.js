@@ -82,7 +82,7 @@ function renderProductos(productos){
         p2.innerText=`Precio: ${preciosFormateados}`
 
         const button = document.createElement("button");
-        button.className = "btn btn-primary";
+        button.className = "btn";
         button.innerText = "Agregar al carrito";
 
         divHijo.append(h5, p1, p2, button);
@@ -128,7 +128,7 @@ function renderCarrito() {
         p.innerText = `Precio: ${preciosFormateados}`;
 
         const button = document.createElement("button");
-        button.className = "btn btn-primary eliminarProducto";
+        button.className = "btn eliminarProducto";
         button.innerText = "Eliminar producto";
 
         divHijo.append(h5, p, button);
