@@ -105,6 +105,11 @@ function renderProductos(productos){
     if(body.classList.value==="dark-mode"){
         cardsDarkMode();
     }
+    if(contenedor.innerHTML===""){
+        body.classList.add("contVacio");
+    }else{
+        body.classList.remove("contVacio");
+    }
 }
 
 function renderCarrito() {
@@ -168,7 +173,7 @@ function eliminarDelCarrito(id) {
 
 function cardsDarkMode(){
     const cardDarkMode = document.querySelectorAll(".card");
-    
+
     cardDarkMode.forEach( clasesCards => {
         if(clasesCards.classList.value==="card estilos-cards"){
             clasesCards.classList.add("card-dark-mode");
@@ -188,9 +193,21 @@ function darkMode(){
         else{
             darkModeButton.innerHTML = '<img src="img/dark-mode.png" alt=""></img>';
         }
+        
+        if(body.classList.contains("dark-mode")){
+            localStorage.setItem("darkMode", "true");
+        }else{
+            localStorage.setItem("darkMode", "false");
+        }
     });
-    
-    
+    if(localStorage.getItem("darkMode")==="true"){
+        body.classList.add("dark-mode");
+        cardsDarkMode();
+        darkModeButton.innerHTML = '<img src="img/light-mode.png" alt=""></img>';
+    }else{
+        body.classList.remove("dark-mode");
+        darkModeButton.innerHTML = '<img src="img/dark-mode.png" alt=""></img>';
+    }
 }
 
 function ordenarPorNombreZA(){

@@ -72,6 +72,10 @@ body{
     box-shadow: 5px 5px 5px grey;
 }
 
+.contVacio{
+    height: 100vh;
+}
+
 .boton-darkmode{
     border: 2px solid black;
 }
