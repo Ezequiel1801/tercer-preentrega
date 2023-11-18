@@ -53,8 +53,35 @@ body{
     font-weight: bold;
 }
 
+.dark-mode{
+    background:linear-gradient(#2B214B, #10082C);
+    color: white;
+}
+
+.estilos-contenedores .card-dark-mode{
+    border: 2px solid white;
+    background: linear-gradient(#2B214B, #10082C);
+    box-shadow: 5px 5px 8px white;
+}
+
+.card-dark-mode p, .card-dark-mode h5, .card-dark-mode button{
+    color: white;
+}
+
+.card{
+    box-shadow: 5px 5px 5px grey;
+}
+
+.boton-darkmode{
+    border: 2px solid black;
+}
+
 img{
     padding: 5px 5px;
+}
+
+h2, h3{
+    text-align: center;
 }
 
 header{
@@ -66,7 +93,7 @@ header{
 
 header nav{
     display: flex;
-    width: 80%;
+    width: 90%;
     flex-direction: row;
     gap: 30px;
 }
