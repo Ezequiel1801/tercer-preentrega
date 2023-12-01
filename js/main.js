@@ -223,7 +223,7 @@ function renderCarrito() {
         button.className = "btn eliminarProducto";
         button.innerText = "Eliminar producto";
 
-        divBotones.append(botonAgregar, p1, botonSacar);
+        divBotones.append(botonSacar, p1, botonAgregar);
         divHijo.append(h5, divBotones, p, button);
         divPadre.append(img, divHijo);
         contenedorCarrito.append(divPadre);
