@@ -1,0 +1,31 @@
+[
+    {"modelo": "GeForce Nvidia MSI GTX 1650 Ventus XS OC", "precio": 205000, "img": "img/placas-de-video/gtx-1650-4gb-msi.png", "tipoDeMemoria": "4GB GDDR6", "velocidadMemoria": "12.000 mhz", "categoria": "Tarjetas Graficas", "id": 1},
+    {"modelo": "GeForce Nvidia Asus RTX 3050 ROG STRIX OC", "precio": 508000, "img": "img/placas-de-video/rtx-3050-8gb-rogStrix.png","tipoDeMemoria": "8GB GDDR6", "velocidadMemoria": "14.000 mhz", "categoria": "Tarjetas Graficas", "id": 2},
+    {"modelo": "GeForce Nvidia Zotac RTX 3070 Ti Trinity", "precio": 552300, "img": "img/placas-de-video/rtx-3070ti-8gb-zotac.png","tipoDeMemoria": "8GB GDDR6X", "velocidadMemoria": "19.000 mhz", "categoria": "Tarjetas Graficas", "id": 3},
+    {"modelo": "GeForce Nvidia Zotac RTX 4080  Trinity OC", "precio": 1225000, "img": "img/placas-de-video/rtx-4080-16gb-zotac.png","tipoDeMemoria": "16GB GGDR6X", "velocidadMemoria": "22.400 mhz", "categoria": "Tarjetas Graficas", "id": 4},
+
+    {"modelo": "Radeon AMD Asrock RX 550 Phantom Gaming", "precio": 98000, "img": "img/placas-de-video/radeon-rx550-2gb-asrock.png", "tipoDeMemoria": "2GB GDDR5", "velocidadMemoria": "6.000 mhz", "categoria": "Tarjetas Graficas", "id": 5},
+    {"modelo": "Radeon AMD XFX RX 6650 XT ULTRA SPEEDSTER QICK 308", "precio": 325000, "img": "img/placas-de-video/radeon-rx6650-8gb-xfx.png", "tipoDeMemoria": "8GB GDDR6", "velocidadMemoria": "17.500 mhz", "categoria": "Tarjetas Graficas", "id": 6},
+    {"modelo": "Radeon AMD XFX RX 6750 XT ULTRA Speedster", "precio": 450000, "img": "img/placas-de-video/radeon-rx6750-15gb-xfx.png", "tipoDeMemoria": "12GB GDDR6", "velocidadMemoria": "18.000 mhz", "categoria": "Tarjetas Graficas", "id": 7},
+    {"modelo": "Radeon AMD Asrock RX 7600 PHANTOM GAMING OC", "precio": 380000, "img": "img/placas-de-video/radeon-rx7600-8gb-asrock.png", "tipoDeMemoria": "8GB GDDR6", "velocidadMemoria": "18.000 mhz", "categoria": "Tarjetas Graficas", "id": 8},
+    {"modelo": "Radeon AMD XFX RX 7900 XTX SPEEDSTER MERC 310", "precio": 1330000, "img": "img/placas-de-video/radeon-rx7900-24gb-xfx.png", "tipoDeMemoria": "24GB GDDR6", "velocidadMemoria": "20.000 mhz", "categoria": "Tarjetas Graficas", "id": 9},
+    
+    {"modelo": "Mother Intel Asrock H610M-HVS", "socket": "1700 Alder Lake-S", "tamanio": "Mini ATX", "memoriaRam": "2 Slots de memorias DDR4", "precio": 70500, "img": "img/motherboards/intel-lga1700-h610m-asrock.png","categoria": "Motherboard", "id": 10},
+    {"modelo": "Mother Intel MSI PRO H410M-B", "socket": "1200 Comet Lake", "tamanio": "Mini ATX", "memoriaRam": "2 Slots de memorias DDR4", "precio": 88000, "img": "img/motherboards/intel-s1200-h410m-msi.png","categoria": "Motherboard", "id": 11},
+    {"modelo": "Mother Intel Gigabyte H470M-H", "socket": "1200 Rocket Lake-S", "tamanio": "Mini ATX", "memoriaRam": "2 Slots de memorias DDR4", "precio": 100000, "img": "img/motherboards/intel-s1200-h470m-gigabyte.png","categoria": "Motherboard", "id": 12},
+    {"modelo": "Mother Intel Asus PRIME Z790-P D4", "socket": "1700 Alder Lake-S, 1700 Raptor Lake", "tamanio": "ATX", "memoriaRam": "4 Slots de memorias DDR4", "precio": 216000, "img": "img/motherboards/intel-1700-z790p-asus.png","categoria": "Motherboard", "id": 13},
+
+    {"modelo": "Mother AMD Gigabyte A520M-K V2", "socket": "AM4 Ryzen 1th Gen A AM4 Ryzen 4th Gen", "tamanio": "Mini ATX", "memoriaRam": "2 Slots de memorias DDR4", "precio": 80000, "img": "img/motherboards/amd-am4-a520m-gigabyte.png", "categoria": "Motherboard", "id": 14},
+    {"modelo": "Mother AMD Asus TUF B650M-PLUS WIFI", "socket": "AM5 Ryzen 7000", "tamanio": "Mini ATX", "memoriaRam": "4 Slots de memorias DDR4", "precio": 230000, "img": "img/motherboards/amd-am5-b650m-asus.png","categoria": "Motherboard", "id": 15},
+    {"modelo": "Mother AMD MSI X670-P PRO WIFI", "socket": "AM5 Ryzen 7000", "tamanio": "ATX", "memoriaRam": "4 Slots de memorias DDR5", "precio": 375000, "img": "img/motherboards/amd-am5-x670p-msi.png","categoria": "Motherboard", "id": 16},
+
+    {"modelo": "Intel Core I3 12100f", "cantHilos": "8 hilos", "cantNucleos": "4 nucleos", "frecuencia": "3.30Ghz", "img": "img/procesadores/intel-i3-12100f.png", "precio": 140000, "id": 17, "categoria": "Procesadores"},
+    {"modelo": "Intel Core I5 13400f", "cantHilos": "16 hilos", "cantNucleos": "10 nucleos", "frecuencia": "2.50Ghz", "img": "img/procesadores/intel-i5-13400f.png", "precio": 285000, "id": 18, "categoria": "Procesadores"},
+    {"modelo": "Intel Core I7 13700k", "cantHilos": "24 hilos", "cantNucleos": "16 nucleos", "frecuencia": "3.40Ghz", "img": "img/procesadores/intel-i7-13700k.png", "precio": 600000, "id": 19, "categoria": "Procesadores"},
+    {"modelo": "Intel Core I9 12900k", "cantHilos": "24 hilos", "cantNucleos": "16 nucleos", "frecuencia": "3.20Ghz", "img": "img/procesadores/intel-i9-12900k.png", "precio": 700000, "id": 20, "categoria": "Procesadores"},
+
+    {"modelo": "AMD Ryzen 3 4100 AM4", "cantHilos": "8 hilos", "cantNucleos": "4 nucleos", "frecuencia": "3.20Ghz", "img": "img/procesadores/amd-ryzen3-4100.png", "precio": 84000, "id": 21, "categoria": "Procesadores"},
+    {"modelo": "AMD Ryzen 5 700 AM5", "cantHilos": "12 hilos", "cantNucleos": "6 nucleos", "frecuencia": "3.50Ghz", "img": "img/procesadores/amd-ryzen5-7600.png", "precio": 295000, "id": 22, "categoria": "Procesadores"},
+    {"modelo": "AMD Ryzen 7 7700x AM5", "cantHilos": "16 hilos", "cantNucleos": "8 nucleos", "frecuencia": "4.50Ghz", "img": "img/procesadores/amd-ryzen7-7700x.png", "precio": 440000, "id": 23, "categoria": "Procesadores"},
+    {"modelo": "AMD Ryzen 9 7900x AM5", "cantHilos": "24 hilos", "cantNucleos": "12 nucleos", "frecuencia": "4.40Ghz", "img": "img/procesadores/amd-ryzen9-7900x.png", "precio": 790000, "id": 24, "categoria": "Procesadores"}
+]

@@ -45,6 +45,8 @@ class procesadores{
     }
 }
 
+const listaDeProductos= [];
+
 let carrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
 let precioFinal = parseInt(localStorage.getItem('precioFinal')) || 0;
@@ -54,6 +56,29 @@ const body = document.body;
 const darkModeButton = document.getElementById("botonDarkmode");
 
 renderCarrito();
+
+function obtenerProductosJSON(){
+
+    return new Promise((resolve, reject) =>{
+        fetch('/productos.json')
+        .then( (response)=>{
+            return response.json();
+        })
+        .then( (responseJson)=>{
+            for(const producto of responseJson){
+                if(producto.categoria==="Tarjetas Graficas"){
+                    listaDeProductos.push(new graficas(producto.modelo, producto.precio, producto.img, producto.tipoDeMemoria, producto.velocidadMemoria, producto.categoria, producto.id));
+                }else if(producto.categoria==="Motherboard"){
+                    listaDeProductos.push(new mothers(producto.modelo, producto.socket, producto.tamanio, producto.memoriaRam, producto.precio, producto.img, producto.categoria, producto.id));
+                }else if(producto.categoria==="Procesadores"){
+                    listaDeProductos.push(new procesadores(producto.modelo, producto.cantHilos, producto.cantNucleos, producto.frecuencia, producto.img, producto.precio, producto.id, producto.categoria));
+                }
+            }
+            resolve();
+        });
+    });
+    
+}
 
 function renderProductos(productos){
 
@@ -98,17 +123,33 @@ function renderProductos(productos){
             precioFinal += producto.precio;
             localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
             localStorage.setItem('precioFinal', precioFinal.toString());
-            Toastify({
-                text: `${producto.modelo} agregado con exito`,
-                duration: 3000,
-                close: true,
-                gravity: "top", // `top` or `bottom`
-                position: "right", // `left`, `center` or `right`
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-                style: {
-                  background: "linear-gradient(to right, #2B214B, #10082C)",
-                },
-              }).showToast();
+            if(body.classList.value==="dark-mode"){
+                Toastify({
+                    text: `${producto.modelo} agregado con exito`,
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: {
+                        background: "linear-gradient(to right, #2B214B, #10082C)",
+                    },
+                }).showToast();
+            }else{
+                Toastify({
+                    text: `${producto.modelo} agregado con exito`,
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true,
+                    style: {
+                        background: "linear-gradient(to right, white, rgb(197, 197, 197))",
+                        color:"black",
+                    },
+                }).showToast();
+            }
+            
 
             renderCarrito();
         });
@@ -178,18 +219,32 @@ function eliminarDelCarrito(id) {
         localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
         localStorage.setItem("precioFinal", precioFinal.toString());
 
-        Toastify({
-            text: `${productoEliminado.modelo} eliminado`,
-            duration: 3000,
-            close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "linear-gradient(to right, #2B214B, #10082C)",
-            },
-            onClick: function(){} // Callback after click
-          }).showToast();
+        if(body.classList.value==="dark-mode"){
+            Toastify({
+                text: `${productoEliminado.modelo} eliminado`,
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                background: "linear-gradient(to right, #2B214B, #10082C)",
+                },
+            }).showToast();
+        }else{
+            Toastify({
+                text: `${productoEliminado.modelo} eliminado`,
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right, white, rgb(197, 197, 197))",
+                    color:"black",
+                },
+            }).showToast();
+        }
 
         renderCarrito();
     }
@@ -304,48 +359,12 @@ function filtroDeProductos(){
     
 }
 
-const listaDeProductos= [
-    //Graficas Nvidia
-    new graficas("GeForce Nvidia MSI GTX 1650 Ventus XS OC", 205000, "img/placas-de-video/gtx-1650-4gb-msi.png", "4GB GDDR6", "12.000 mhz", "Tarjetas Graficas", 1),
-    new graficas("GeForce Nvidia Asus RTX 3050 ROG STRIX OC", 508000, "img/placas-de-video/rtx-3050-8gb-rogStrix.png", "8GB GDDR6", "14.000 mhz", "Tarjetas Graficas", 2),
-    new graficas("GeForce Nvidia Zotac RTX 3070 Ti Trinity", 552300, "img/placas-de-video/rtx-3070ti-8gb-zotac.png", "8GB GDDR6X", "19.000 mhz", "Tarjetas Graficas", 3),
-    new graficas("GeForce Nvidia Zotac RTX 4080  Trinity OC", 1225000, "img/placas-de-video/rtx-4080-16gb-zotac.png", "16GB GGDR6X", "22.400 mhz", "Tarjetas Graficas", 4),
+obtenerProductosJSON().then(()=>{
+    renderProductos(listaDeProductos);
 
-    //Graficas AMD
-    new graficas("Radeon AMD Asrock RX 550 Phantom Gaming", 98000, "img/placas-de-video/radeon-rx550-2gb-asrock.png", "2GB GDDR5", "6.000 mhz", "Tarjetas Graficas", 5),
-    new graficas("Radeon AMD XFX RX 6650 XT ULTRA SPEEDSTER QICK 308", 325000, "img/placas-de-video/radeon-rx6650-8gb-xfx.png", "8GB GDDR6", "17.500 mhz", "Tarjetas Graficas", 6),
-    new graficas("Radeon AMD XFX RX 6750 XT ULTRA Speedster", 450000, "img/placas-de-video/radeon-rx6750-15gb-xfx.png", "12GB GDDR6", "18.000 mhz", "Tarjetas Graficas", 7),
-    new graficas("Radeon AMD Asrock RX 7600 PHANTOM GAMING OC", 380000, "img/placas-de-video/radeon-rx7600-8gb-asrock.png", "8GB GDDR6", "18.000 mhz", "Tarjetas Graficas", 8),
-    new graficas("Radeon AMD XFX RX 7900 XTX SPEEDSTER MERC 310", 1330000, "img/placas-de-video/radeon-rx7900-24gb-xfx.png", "24GB GDDR6", "20.000 mhz", "Tarjetas Graficas",9),
+    ordenarProductos();
 
-    // Mothers Intel
-    new mothers("Mother Intel Asrock H610M-HVS", "1700 Alder Lake-S", "Mini ATX", "2 Slots de memorias DDR4", 70500, "img/motherboards/intel-lga1700-h610m-asrock.png", "Motherboard", 10),
-    new mothers("Mother Intel MSI PRO H410M-B", "1200 Comet Lake","Mini ATX", "2 Slots de memorias DDR4", 88000, "img/motherboards/intel-s1200-h410m-msi.png", "Motherboard", 11),
-    new mothers("Mother Intel Gigabyte H470M-H", "1200 Rocket Lake-S", "Mini ATX", "2 Slots de memorias DDR4", 100000, "img/motherboards/intel-s1200-h470m-gigabyte.png", "Motherboard", 12),
-    new mothers("Mother Intel Asus PRIME Z790-P D4", "1700 Alder Lake-S, 1700 Raptor Lake", "ATX", "4 Slots de memorias DDR4", 216000, "img/motherboards/intel-1700-z790p-asus.png", "Motherboard", 13),
-
-    // Mothers AMD
-    new mothers ("Mother AMD Gigabyte A520M-K V2", "AM4 Ryzen 1th Gen A AM4 Ryzen 4th Gen", "Mini ATX", "2 Slots de memorias DDR4", 80000, "img/motherboards/amd-am4-a520m-gigabyte.png", "Motherboard", 14),
-    new mothers ("Mother AMD Asus TUF B650M-PLUS WIFI", "AM5 Ryzen 7000", "Mini ATX", "4 Slots de memorias DDR4", 230000, "img/motherboards/amd-am5-b650m-asus.png", "Motherboard", 15),
-    new mothers ("Mother AMD MSI X670-P PRO WIFI", "AM5 Ryzen 7000", "ATX", "4 Slots de memorias DDR5", 375000, "img/motherboards/amd-am5-x670p-msi.png", "Motherboard", 16),
-
-    //Procesadores Intel
-    new procesadores("Intel Core I3 12100f", "8 hilos", "4 nucleos", "3.30Ghz", "img/procesadores/intel-i3-12100f.png", 140000, 17, "Procesadores"),
-    new procesadores("Intel Core I5 13400f", "16 hilos", "10 nucleos", "2.50Ghz", "img/procesadores/intel-i5-13400f.png", 285000, 18, "Procesadores"),
-    new procesadores("Intel Core I7 13700k", "24 hilos", "16 nucleos", "3.40Ghz", "img/procesadores/intel-i7-13700k.png", 600000, 19, "Procesadores"),
-    new procesadores("Intel Core I9 12900k", "24 hilos", "16 nucleos", "3.20Ghz", "img/procesadores/intel-i9-12900k.png", 700000, 20, "Procesadores"),
-
-    //Procesadores AMD
-    new procesadores("AMD Ryzen 3 4100 AM4", "8 hilos", "4 nucleos", "3.20Ghz", "img/procesadores/amd-ryzen3-4100.png", 84000, 21, "Procesadores"),
-    new procesadores("AMD Ryzen 5 7600 AM5", "12 hilos", "6 nucleos", "3.50Ghz", "img/procesadores/amd-ryzen5-7600.png", 295000, 22, "Procesadores"),
-    new procesadores("AMD Ryzen 7 7700x AM5", "16 hilos", "8 nucleos", "4.50Ghz", "img/procesadores/amd-ryzen7-7700x.png", 440000, 23, "Procesadores"),
-    new procesadores("AMD Ryzen 9 7900x AM5", "24 hilos", "12 nucleos", "4.40Ghz", "img/procesadores/amd-ryzen9-7900x.png", 790000, 24, "Procesadores"),
-];
-
-renderProductos(listaDeProductos);
-
-ordenarProductos();
-
-filtroDeProductos();
+    filtroDeProductos();
+});
 
 darkMode();
