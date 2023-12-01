@@ -25,7 +25,7 @@
     {"modelo": "Intel Core I9 12900k", "cantHilos": "24 hilos", "cantNucleos": "16 nucleos", "frecuencia": "3.20Ghz", "img": "img/procesadores/intel-i9-12900k.png", "precio": 700000, "id": 20, "categoria": "Procesadores"},
 
     {"modelo": "AMD Ryzen 3 4100 AM4", "cantHilos": "8 hilos", "cantNucleos": "4 nucleos", "frecuencia": "3.20Ghz", "img": "img/procesadores/amd-ryzen3-4100.png", "precio": 84000, "id": 21, "categoria": "Procesadores"},
-    {"modelo": "AMD Ryzen 5 700 AM5", "cantHilos": "12 hilos", "cantNucleos": "6 nucleos", "frecuencia": "3.50Ghz", "img": "img/procesadores/amd-ryzen5-7600.png", "precio": 295000, "id": 22, "categoria": "Procesadores"},
+    {"modelo": "AMD Ryzen 5 7600 AM5", "cantHilos": "12 hilos", "cantNucleos": "6 nucleos", "frecuencia": "3.50Ghz", "img": "img/procesadores/amd-ryzen5-7600.png", "precio": 295000, "id": 22, "categoria": "Procesadores"},
     {"modelo": "AMD Ryzen 7 7700x AM5", "cantHilos": "16 hilos", "cantNucleos": "8 nucleos", "frecuencia": "4.50Ghz", "img": "img/procesadores/amd-ryzen7-7700x.png", "precio": 440000, "id": 23, "categoria": "Procesadores"},
     {"modelo": "AMD Ryzen 9 7900x AM5", "cantHilos": "24 hilos", "cantNucleos": "12 nucleos", "frecuencia": "4.40Ghz", "img": "img/procesadores/amd-ryzen9-7900x.png", "precio": 790000, "id": 24, "categoria": "Procesadores"}
 ]

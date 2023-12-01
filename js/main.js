@@ -10,10 +10,11 @@ class graficas{
         -Velocidad de memoria: ${velocidadMemoria}`
         this.categoria=categoria;
         this.id=id;
+        this.cantidad=1;
     }
 }
 class mothers{
-    constructor(modelo, socket, tamanio, memoriaRam, precio, img, categoria,id){
+    constructor(modelo, socket, tamanio, memoriaRam, precio, img, categoria, id){
         this.modelo=modelo;
         this.socket=socket;
         this.tamanio=tamanio;
@@ -26,6 +27,7 @@ class mothers{
         -Memoria ram: ${memoriaRam}`
         this.categoria=categoria;
         this.id=id;
+        this.cantidad=1;
     }
 }
 class procesadores{
@@ -42,6 +44,7 @@ class procesadores{
         -Frecuencia base: ${frecuencia}`
         this.id=id;
         this.categoria=categoria;
+        this.cantidad=1;
     }
 }
 
@@ -119,8 +122,17 @@ function renderProductos(productos){
         contenedor.append(divPadre);
 
         button.addEventListener("click", ()=>{
-            carrito.push(producto);
-            precioFinal += producto.precio;
+            const productoRepetido = carrito.some((productoRep)=> productoRep.id === producto.id);
+            if(productoRepetido){
+                carrito.map((productoASumar)=>{
+                    if(productoASumar.id === producto.id){
+                        producto.cantidad++;
+                    }
+                });
+            }else{
+                carrito.push(producto);
+            }
+            precioFinal = carrito.reduce((acc, el)=> acc + el.precio * el.cantidad, 0);
             localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
             localStorage.setItem('precioFinal', precioFinal.toString());
             if(body.classList.value==="dark-mode"){
@@ -188,19 +200,50 @@ function renderCarrito() {
         h5.className = "card.title tituloCard";
         h5.innerText = `${producto.modelo}`;
 
+        const p1 = document.createElement("p");
+        p1.className = "card-text";
+        p1.innerText = `Cantidad: ${producto.cantidad}`;
+
         const p = document.createElement("p");
         p.className = "card-text precioCard";
         p.innerText = `Precio: ${preciosFormateados}`;
+
+        const divBotones = document.createElement("div");
+        divBotones.className = "estilos-botones-carrito";
+
+        const botonAgregar = document.createElement("button");
+        botonAgregar.className = "btn botones-agregar-sacar boton-agregar";
+        botonAgregar.innerText = "+";
+
+        const botonSacar = document.createElement("button");
+        botonSacar.className = "btn botones-agregar-sacar";
+        botonSacar.innerText = "-";
 
         const button = document.createElement("button");
         button.className = "btn eliminarProducto";
         button.innerText = "Eliminar producto";
 
-        divHijo.append(h5, p, button);
+        divBotones.append(botonAgregar, p1, botonSacar);
+        divHijo.append(h5, divBotones, p, button);
         divPadre.append(img, divHijo);
         contenedorCarrito.append(divPadre);
 
         button.addEventListener("click", () => eliminarDelCarrito(producto.id));
+        botonAgregar.addEventListener("click", ()=>{
+            producto.cantidad++;
+            precioFinal = carrito.reduce((acc, el)=> acc + el.precio * el.cantidad, 0);
+            renderCarrito();
+        });
+        botonSacar.addEventListener("click", () =>{
+            if(producto.cantidad > 1){
+                producto.cantidad--;
+                precioFinal -= producto.precio;
+                renderCarrito();
+            }else{
+                eliminarDelCarrito(producto.id);
+            }
+            
+        })
     }
     precioTotal.innerHTML = precioTotalFormateado;
     if(body.classList.value==="dark-mode"){
@@ -214,7 +257,7 @@ function eliminarDelCarrito(id) {
     if (indice !== -1) {
         const productoEliminado = carrito.splice(indice, 1)[0];
 
-        precioFinal -= productoEliminado.precio;
+        precioFinal -= productoEliminado.precio * productoEliminado.cantidad;
 
         localStorage.setItem("productosEnCarrito", JSON.stringify(carrito));
         localStorage.setItem("precioFinal", precioFinal.toString());
@@ -244,8 +287,9 @@ function eliminarDelCarrito(id) {
                     color:"black",
                 },
             }).showToast();
+            
         }
-
+        productoEliminado.cantidad=1;
         renderCarrito();
     }
 }
@@ -368,3 +412,4 @@ obtenerProductosJSON().then(()=>{
 });
 
 darkMode();
+

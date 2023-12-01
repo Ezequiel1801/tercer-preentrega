@@ -29,6 +29,32 @@ body{
     background-color: rgb(6, 112, 250);
 }
 
+.estilos-botones-carrito{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    align-items: center;
+}
+
+.estilos-botones-carrito p{
+    font-weight: bold;
+    margin: 0px;
+}
+
+#contenedorCarrito .card-body .boton-agregar{
+    border: 3px solid rgb(4, 131, 235);
+    border-radius: 8px;
+}
+
+#contenedorCarrito .card-body .boton-agregar:hover{
+    background-color: rgb(6, 112, 250);
+}
+
+#contenedorCarrito .card-body .botones-agregar-sacar{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
 #contenedorCarrito .card-body button{
     border: 3px solid rgb(223, 6, 6);
     border-radius: 8px;
