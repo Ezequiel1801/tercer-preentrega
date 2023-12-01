@@ -60,7 +60,7 @@ renderCarrito();
 function obtenerProductosJSON(){
 
     return new Promise((resolve, reject) =>{
-        fetch('/productos.json')
+        fetch('productos.json')
         .then( (response)=>{
             return response.json();
         })
